@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.stylist.mapper.StylistMapper">
+    
+    <resultMap type="Stylist" id="StylistResult">
+        <result property="id"    column="id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="introduction"    column="introduction"    />
+        <result property="englishName"    column="english_name"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="picturePath"    column="picture_path"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectStylistVo">
+        select id, person_name, age, phone, introduction, english_name, create_time, update_time, picture_path, remark from stylist
+    </sql>
+
+    <select id="selectStylistList" parameterType="Stylist" resultMap="StylistResult">
+        <include refid="selectStylistVo"/>
+        <where>  
+            <if test="personName != null  and personName != ''"> and person_name like concat('%', #{personName}, '%')</if>
+            <if test="age != null "> and age = #{age}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="introduction != null  and introduction != ''"> and introduction = #{introduction}</if>
+            <if test="englishName != null  and englishName != ''"> and english_name like concat('%', #{englishName}, '%')</if>
+            <if test="picturePath != null  and picturePath != ''"> and picture_path = #{picturePath}</if>
+        </where>
+    </select>
+    
+    <select id="selectStylistById" parameterType="Long" resultMap="StylistResult">
+        <include refid="selectStylistVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertStylist" parameterType="Stylist" useGeneratedKeys="true" keyProperty="id">
+        insert into stylist
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="personName != null  and personName != ''">person_name,</if>
+            <if test="age != null ">age,</if>
+            <if test="phone != null  and phone != ''">phone,</if>
+            <if test="introduction != null  and introduction != ''">introduction,</if>
+            <if test="englishName != null  and englishName != ''">english_name,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="picturePath != null  and picturePath != ''">picture_path,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="personName != null  and personName != ''">#{personName},</if>
+            <if test="age != null ">#{age},</if>
+            <if test="phone != null  and phone != ''">#{phone},</if>
+            <if test="introduction != null  and introduction != ''">#{introduction},</if>
+            <if test="englishName != null  and englishName != ''">#{englishName},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="picturePath != null  and picturePath != ''">#{picturePath},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStylist" parameterType="Stylist">
+        update stylist
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="personName != null  and personName != ''">person_name = #{personName},</if>
+            <if test="age != null ">age = #{age},</if>
+            <if test="phone != null  and phone != ''">phone = #{phone},</if>
+            <if test="introduction != null  and introduction != ''">introduction = #{introduction},</if>
+            <if test="englishName != null  and englishName != ''">english_name = #{englishName},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="picturePath != null  and picturePath != ''">picture_path = #{picturePath},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteStylistById" parameterType="Long">
+        delete from stylist where id = #{id}
+    </delete>
+
+    <delete id="deleteStylistByIds" parameterType="String">
+        delete from stylist where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.order.mapper.StylistOrderMapper">
+    
+    <resultMap type="StylistOrder" id="StylistOrderResult">
+        <result property="id"    column="id"    />
+        <result property="personName"    column="person_name"    />
+        <result property="sex"    column="sex"    />
+        <result property="age"    column="age"    />
+        <result property="phone"    column="phone"    />
+        <result property="orderTime"    column="order_time"    />
+        <result property="orderNum"    column="order_num"    />
+        <result property="orderStylist"    column="order_stylist"    />
+        <result property="orderProject"    column="order_project"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectStylistOrderVo">
+        select id, person_name, sex, age, phone, order_time, order_num, order_stylist, order_project, create_time, update_time, remark from stylist_order
+    </sql>
+
+    <select id="selectStylistOrderList" parameterType="StylistOrder" resultMap="StylistOrderResult">
+        <include refid="selectStylistOrderVo"/>
+        <where>  
+            <if test="personName != null  and personName != ''"> and person_name like concat('%', #{personName}, '%')</if>
+            <if test="sex != null  and sex != ''"> and sex = #{sex}</if>
+            <if test="age != null "> and age = #{age}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="orderTime != null "> and order_time = #{orderTime}</if>
+            <if test="orderNum != null "> and order_num = #{orderNum}</if>
+            <if test="orderStylist != null "> and order_stylist = #{orderStylist}</if>
+            <if test="orderProject != null  and orderProject != ''"> and order_project = #{orderProject}</if>
+        </where>
+    </select>
+    
+    <select id="selectStylistOrderById" parameterType="String" resultMap="StylistOrderResult">
+        <include refid="selectStylistOrderVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertStylistOrder" parameterType="StylistOrder">
+        insert into stylist_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">id,</if>
+            <if test="personName != null  and personName != ''">person_name,</if>
+            <if test="sex != null  and sex != ''">sex,</if>
+            <if test="age != null ">age,</if>
+            <if test="phone != null  and phone != ''">phone,</if>
+            <if test="orderTime != null ">order_time,</if>
+            <if test="orderNum != null ">order_num,</if>
+            <if test="orderStylist != null ">order_stylist,</if>
+            <if test="orderProject != null  and orderProject != ''">order_project,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">#{id},</if>
+            <if test="personName != null  and personName != ''">#{personName},</if>
+            <if test="sex != null  and sex != ''">#{sex},</if>
+            <if test="age != null ">#{age},</if>
+            <if test="phone != null  and phone != ''">#{phone},</if>
+            <if test="orderTime != null ">#{orderTime},</if>
+            <if test="orderNum != null ">#{orderNum},</if>
+            <if test="orderStylist != null ">#{orderStylist},</if>
+            <if test="orderProject != null  and orderProject != ''">#{orderProject},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStylistOrder" parameterType="StylistOrder">
+        update stylist_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="personName != null  and personName != ''">person_name = #{personName},</if>
+            <if test="sex != null  and sex != ''">sex = #{sex},</if>
+            <if test="age != null ">age = #{age},</if>
+            <if test="phone != null  and phone != ''">phone = #{phone},</if>
+            <if test="orderTime != null ">order_time = #{orderTime},</if>
+            <if test="orderNum != null ">order_num = #{orderNum},</if>
+            <if test="orderStylist != null ">order_stylist = #{orderStylist},</if>
+            <if test="orderProject != null  and orderProject != ''">order_project = #{orderProject},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteStylistOrderById" parameterType="String">
+        delete from stylist_order where id = #{id}
+    </delete>
+
+    <delete id="deleteStylistOrderByIds" parameterType="String">
+        delete from stylist_order where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
