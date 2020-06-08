@@ -79,8 +79,8 @@ public class StylistOrderController extends BaseController {
 		List<DictData> projects = dictTypeService.selectDictDataByType("stylist_order_project");
 
 		mmap.put("projects", projects);
-		mmap.put("path", "/profile/avatar/2020/06/06/6a7374305ded6d1c8cd94e5675adceb4.png");
-		mmap.put("path2", "/profile/avatar/2020/06/06/6a7374305ded6d1c8cd94e5675adceb4.png");
+		mmap.put("path", "/profile/avatar/2020/06/08/1796f940b7ca5aded32cf239f012a573.png");
+		mmap.put("path2", "/profile/avatar/2020/06/08/1796f940b7ca5aded32cf239f012a573.png");
 		return prefix + "/add";
 	}
 

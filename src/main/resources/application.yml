@@ -9,9 +9,20 @@ ruoyi:
   # 实例演示开关
   demoEnabled: true
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: /Users/mac/data/MrHuzi-files
+  # profile: /Users/mac/data/MrHuzi-files
+  # profile: D:\development\eclipse-workspace\files
+  profile: /opt/xynews/tomcat9-guan/guan-files
   # 获取ip地址开关
   addressEnabled: false
+
+# 微信配置
+weixin:
+# 微信开放平台地址
+  open:
+    url: https://open.weixin.qq.com
+#以下皆是测试地址和账号（heliang申请的测试账号）
+  api:
+    url: https://api.weixin.qq.com
 
 # 开发环境配置
 server:
@@ -19,7 +30,7 @@ server:
   port: 80
   servlet:
     # 应用的访问路径
-    context-path: /MrHuzi
+    context-path: /88chaopai
   tomcat:
     # tomcat的URI编码
     uri-encoding: UTF-8
@@ -42,6 +53,8 @@ user:
 
 # Spring配置
 spring:
+  jmx:
+    enable: false
   # 模板引擎
   thymeleaf:
     mode: HTML

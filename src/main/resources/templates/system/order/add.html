@@ -6,7 +6,7 @@
 <style>
 .stylist-photo{
 	width: 30%;
-	height: auto;
+	height: 140px;
 }
 </style>
 </head>
@@ -14,23 +14,23 @@
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-order-add">
 			<div class="form-group">
-				<img th:src="@{/img/88cp.jpeg}" style="width: 100%; height: 200px;"/>
-				<p>88潮牌专业整体形象设计、造型烫、日韩剪造型，接发、画染</p>
-				<p>地址：襄阳市樊城区交警大队对面</p>
+				<img th:src="@{/88/123.jpg}" class="88-logo" style="width: 100%;height: 200px;"/>
+				<p style="font-size:14px;margin:10px 5px 0 5px;text-indent:2em;padding:5px;font-family:Microsoft YaHei;">88潮牌专业整体形象设计、造型烫、日韩剪造型，接发、画染</p>
+				<p style="font-size:14px;margin:10px 5px 0 5px;text-indent:2em;padding:5px;font-family:Microsoft YaHei;">地址：襄阳市樊城区交警大队对面</p>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label is-required">选择发型师：</label>
 				<input type="hidden" name="orderStylist" value="2">
                 <div class="col-sm-8">
-                    <img class="stylist-photo" th:src="@{${path}}" value="1"/>
-					<img class="stylist-photo" th:src="@{${path2}}" value="2" style="border: 2px solid deepskyblue;margin: 0 3px;"/>
-					<img class="stylist-photo" th:src="@{${path2}}" value="3"/>
+                    <img class="stylist-photo" th:src="@{/88/hedong.jpg}" value="1"/>
+					<img class="stylist-photo" th:src="@{/88/huzi.jpg}" value="2" style="border: 2px solid deepskyblue;margin: 0 3px;"/>
+					<img class="stylist-photo" th:src="@{/88/hedong.jpg}" value="1"/>
 				</div> 
 			</div>
             <div class="form-group">
                 <label class="col-sm-3 control-label is-required">姓名：</label>
                 <div class="col-sm-8">
-                    <input name="personName" class="form-control" type="text" required value="何亮">
+                    <input name="personName" class="form-control" type="text" required placeholder="请输入您的姓名">
                 </div>
             </div>
 			<div class="form-group">
@@ -44,13 +44,13 @@
 			<div class="form-group">    
                 <label class="col-sm-3 control-label is-required">年龄：</label>
                 <div class="col-sm-8">
-                    <input name="age" class="form-control" type="number" min="1" max="100" required value="28">
+                    <input name="age" class="form-control" type="number" min="1" max="100" required placeholder="请输入年龄">
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label is-required">手机号码：</label>
                 <div class="col-sm-8">
-                    <input name="phone" class="form-control" type="number" minlength="11" maxlength="11" required value="18210953348">
+                    <input name="phone" class="form-control" type="number" minlength="11" maxlength="11" required placeholder="请输入手机号码">
                 </div>
             </div>
             <div class="form-group">    
@@ -58,7 +58,7 @@
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                        <input name="orderTime" class="form-control" placeholder="请选择预约时间" type="text" autocomplete="false" required value="2020-06-20 15:00:00">
+                        <input name="orderTime" class="form-control" placeholder="请选择预约时间" type="text" autocomplete="false" required>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
 			<div class="form-group">
                 <label class="col-sm-3 control-label">备注：</label>
                 <div class="col-sm-8">
-                    <textarea name="remark" maxlength="500" class="form-control" rows="1" value="帮我安排帅哥发型师">帮我安排帅哥发型师</textarea>
+                    <textarea name="remark" maxlength="500" class="form-control" rows="1" placeholder="如有特殊要求请在此输入"></textarea>
                 </div>
             </div>
 			<div class="form-group">    
@@ -99,7 +99,15 @@
 
         function submitHandler() {
             if ($.validate.form()) {
-                $.operate.save(prefix + "/add", $('#form-order-add').serialize());
+                $.operate.save(prefix + "/add", $('#form-order-add').serialize(), function(res){
+                	$.modal.closeLoading();
+                	var code = res.code;
+                	if(code==0 || code=="0"){
+                		$.modal.alertSuccess("预约成功！");	
+                	} else {
+                		$.modal.alertError(res.msg);
+                	}
+                });
             }
         }
 
