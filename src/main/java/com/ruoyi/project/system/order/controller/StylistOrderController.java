@@ -87,7 +87,7 @@ public class StylistOrderController extends BaseController {
 	/**
 	 * 新增保存预约订单
 	 */
-	@RequiresPermissions("system:order:add")
+	//@RequiresPermissions("system:order:add")
 	@Log(title = "预约订单", businessType = BusinessType.INSERT)
 	@PostMapping("/add")
 	@ResponseBody

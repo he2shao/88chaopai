@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50648
 File Encoding         : 65001
 
-Date: 2020-06-08 15:39:45
+Date: 2020-06-08 16:03:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -225,7 +225,7 @@ CREATE TABLE `QRTZ_SCHEDULER_STATE` (
 -- ----------------------------
 -- Records of QRTZ_SCHEDULER_STATE
 -- ----------------------------
-INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', 'localhost.localdomain1591601829771', '1591601983008', '15000');
+INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', 'localhost.localdomain1591602966358', '1591603404550', '15000');
 
 -- ----------------------------
 -- Table structure for QRTZ_SIMPLE_TRIGGERS
@@ -302,9 +302,9 @@ CREATE TABLE `QRTZ_TRIGGERS` (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1591601830000', '-1', '5', 'PAUSED', 'CRON', '1591601829000', '0', null, '2', '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1591601835000', '-1', '5', 'PAUSED', 'CRON', '1591601829000', '0', null, '2', '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1591601840000', '-1', '5', 'PAUSED', 'CRON', '1591601829000', '0', null, '2', '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1591602970000', '-1', '5', 'PAUSED', 'CRON', '1591602966000', '0', null, '2', '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1591602975000', '-1', '5', 'PAUSED', 'CRON', '1591602966000', '0', null, '2', '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1591602980000', '-1', '5', 'PAUSED', 'CRON', '1591602966000', '0', null, '2', '');
 
 -- ----------------------------
 -- Table structure for stylist
@@ -354,6 +354,8 @@ CREATE TABLE `stylist_order` (
 -- Records of stylist_order
 -- ----------------------------
 INSERT INTO `stylist_order` VALUES ('1591596310146', '何亮', '0', '28', '18210953348', '2020-06-20 15:00:00', '1', '2', null, '2020-06-08 14:05:10', null, '帮我安排帅哥发型师');
+INSERT INTO `stylist_order` VALUES ('1591603032434', '这种', '0', '26', '18210953348', '2020-06-10 15:55:39', '1', '2', null, '2020-06-08 15:57:12', null, null);
+INSERT INTO `stylist_order` VALUES ('1591603186571', '不', '0', '57', '18210953348', '2020-06-11 17:55:16', '1', '2', null, '2020-06-08 15:59:47', null, null);
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -454,7 +456,7 @@ CREATE TABLE `sys_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -488,6 +490,11 @@ INSERT INTO `sys_dict_data` VALUES ('26', '8', '生成代码', '8', 'sys_oper_ty
 INSERT INTO `sys_dict_data` VALUES ('27', '9', '清空数据', '9', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作');
 INSERT INTO `sys_dict_data` VALUES ('28', '1', '成功', '0', 'sys_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
 INSERT INTO `sys_dict_data` VALUES ('29', '2', '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `sys_dict_data` VALUES ('100', '1', '洗发', '1', 'stylist_order_project', null, null, 'Y', '0', 'admin', '2020-06-08 16:01:54', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('101', '2', '剪发', '2', 'stylist_order_project', null, null, 'Y', '0', 'admin', '2020-06-08 16:02:03', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('102', '3', '烫发', '3', 'stylist_order_project', null, null, 'Y', '0', 'admin', '2020-06-08 16:02:14', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('103', '4', '染发', '4', 'stylist_order_project', null, null, 'Y', '0', 'admin', '2020-06-08 16:02:22', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('104', '5', '护理', '5', 'stylist_order_project', null, null, 'Y', '0', 'admin', '2020-06-08 16:02:29', '', null, null);
 
 -- ----------------------------
 -- Table structure for sys_dict_type
@@ -505,7 +512,7 @@ CREATE TABLE `sys_dict_type` (
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`),
   UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
 
 -- ----------------------------
 -- Records of sys_dict_type
@@ -520,6 +527,7 @@ INSERT INTO `sys_dict_type` VALUES ('7', '通知类型', 'sys_notice_type', '0',
 INSERT INTO `sys_dict_type` VALUES ('8', '通知状态', 'sys_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表');
 INSERT INTO `sys_dict_type` VALUES ('9', '操作类型', 'sys_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表');
 INSERT INTO `sys_dict_type` VALUES ('10', '系统状态', 'sys_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表');
+INSERT INTO `sys_dict_type` VALUES ('100', '预约项目', 'stylist_order_project', '0', 'admin', '2020-06-08 16:01:28', '', null, null);
 
 -- ----------------------------
 -- Table structure for sys_job
@@ -584,7 +592,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -607,6 +615,10 @@ INSERT INTO `sys_logininfor` VALUES ('114', 'admin', '117.136.23.53', 'XX XX', '
 INSERT INTO `sys_logininfor` VALUES ('115', 'admin', '120.202.54.178', 'XX XX', 'Mobile Safari', 'Mac OS X (iPhone)', '0', '登录成功', '2020-06-08 15:20:44');
 INSERT INTO `sys_logininfor` VALUES ('116', 'admin', '117.136.23.53', 'XX XX', 'Apple WebKit', 'Mac OS X (iPhone)', '0', '登录成功', '2020-06-08 15:32:41');
 INSERT INTO `sys_logininfor` VALUES ('117', 'hedong', '120.202.54.178', 'XX XX', 'Chrome', 'Windows 10', '0', '登录成功', '2020-06-08 15:38:39');
+INSERT INTO `sys_logininfor` VALUES ('118', 'admin', '120.202.54.178', 'XX XX', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-06-08 15:47:49');
+INSERT INTO `sys_logininfor` VALUES ('119', 'admin', '117.136.23.53', 'XX XX', 'Apple WebKit', 'Mac OS X (iPhone)', '1', '密码输入错误1次', '2020-06-08 15:51:48');
+INSERT INTO `sys_logininfor` VALUES ('120', 'admin', '117.136.23.53', 'XX XX', 'Apple WebKit', 'Mac OS X (iPhone)', '0', '登录成功', '2020-06-08 15:51:57');
+INSERT INTO `sys_logininfor` VALUES ('121', 'admin', '120.202.54.178', 'XX XX', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-06-08 16:00:33');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -775,7 +787,7 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -799,6 +811,14 @@ INSERT INTO `sys_oper_log` VALUES ('115', '菜单管理', '1', 'com.ruoyi.projec
 INSERT INTO `sys_oper_log` VALUES ('116', '菜单管理', '1', 'com.ruoyi.project.system.menu.controller.MenuController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/menu/add', '120.202.54.178', 'XX XX', '{\"parentId\":[\"2002\"],\"menuType\":[\"F\"],\"menuName\":[\"查询\"],\"url\":[\"\"],\"target\":[\"menuItem\"],\"perms\":[\"system:order:list\"],\"orderNum\":[\"1\"],\"icon\":[\"\"],\"visible\":[\"0\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 14:52:08');
 INSERT INTO `sys_oper_log` VALUES ('117', '菜单管理', '1', 'com.ruoyi.project.system.menu.controller.MenuController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/menu/add', '120.202.54.178', 'XX XX', '{\"parentId\":[\"2002\"],\"menuType\":[\"F\"],\"menuName\":[\"导出\"],\"url\":[\"\"],\"target\":[\"menuItem\"],\"perms\":[\"system:order:export\"],\"orderNum\":[\"2\"],\"icon\":[\"\"],\"visible\":[\"0\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 14:52:27');
 INSERT INTO `sys_oper_log` VALUES ('118', '角色管理', '2', 'com.ruoyi.project.system.role.controller.RoleController.editSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/role/edit', '120.202.54.178', 'XX XX', '{\"roleId\":[\"100\"],\"roleName\":[\"88潮牌管理员\"],\"roleKey\":[\"88manager\"],\"roleSort\":[\"3\"],\"status\":[\"0\"],\"remark\":[\"\"],\"menuIds\":[\"2000,2001,2003,2005,2007,2002,2008,2009\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 14:53:02');
+INSERT INTO `sys_oper_log` VALUES ('119', '预约订单', '1', 'com.ruoyi.project.system.order.controller.StylistOrderController.addSave()', 'POST', '1', null, null, '/88chaopai/system/order/add', '117.136.23.53', 'XX XX', '{\"orderStylist\":[\"2\"],\"personName\":[\"这种\"],\"sex\":[\"0\"],\"age\":[\"26\"],\"phone\":[\"18210953348\"],\"orderTime\":[\"2020-06-10 15:55:39\"],\"orderNum\":[\"1\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 15:57:12');
+INSERT INTO `sys_oper_log` VALUES ('120', '预约订单', '1', 'com.ruoyi.project.system.order.controller.StylistOrderController.addSave()', 'POST', '1', null, null, '/88chaopai/system/order/add', '117.136.23.53', 'XX XX', '{\"orderStylist\":[\"2\"],\"personName\":[\"不\"],\"sex\":[\"0\"],\"age\":[\"57\"],\"phone\":[\"18210953348\"],\"orderTime\":[\"2020-06-11 17:55:16\"],\"orderNum\":[\"1\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 15:59:46');
+INSERT INTO `sys_oper_log` VALUES ('121', '字典类型', '1', 'com.ruoyi.project.system.dict.controller.DictTypeController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/add', '120.202.54.178', 'XX XX', '{\"dictName\":[\"预约项目\"],\"dictType\":[\"stylist_order_project\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:01:28');
+INSERT INTO `sys_oper_log` VALUES ('122', '字典数据', '1', 'com.ruoyi.project.system.dict.controller.DictDataController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/data/add', '120.202.54.178', 'XX XX', '{\"dictLabel\":[\"洗发\"],\"dictValue\":[\"1\"],\"dictType\":[\"stylist_order_project\"],\"cssClass\":[\"\"],\"dictSort\":[\"1\"],\"listClass\":[\"\"],\"isDefault\":[\"Y\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:01:54');
+INSERT INTO `sys_oper_log` VALUES ('123', '字典数据', '1', 'com.ruoyi.project.system.dict.controller.DictDataController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/data/add', '120.202.54.178', 'XX XX', '{\"dictLabel\":[\"剪发\"],\"dictValue\":[\"2\"],\"dictType\":[\"stylist_order_project\"],\"cssClass\":[\"\"],\"dictSort\":[\"2\"],\"listClass\":[\"\"],\"isDefault\":[\"Y\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:02:03');
+INSERT INTO `sys_oper_log` VALUES ('124', '字典数据', '1', 'com.ruoyi.project.system.dict.controller.DictDataController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/data/add', '120.202.54.178', 'XX XX', '{\"dictLabel\":[\"烫发\"],\"dictValue\":[\"3\"],\"dictType\":[\"stylist_order_project\"],\"cssClass\":[\"\"],\"dictSort\":[\"3\"],\"listClass\":[\"\"],\"isDefault\":[\"Y\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:02:14');
+INSERT INTO `sys_oper_log` VALUES ('125', '字典数据', '1', 'com.ruoyi.project.system.dict.controller.DictDataController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/data/add', '120.202.54.178', 'XX XX', '{\"dictLabel\":[\"染发\"],\"dictValue\":[\"4\"],\"dictType\":[\"stylist_order_project\"],\"cssClass\":[\"\"],\"dictSort\":[\"4\"],\"listClass\":[\"\"],\"isDefault\":[\"Y\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:02:22');
+INSERT INTO `sys_oper_log` VALUES ('126', '字典数据', '1', 'com.ruoyi.project.system.dict.controller.DictDataController.addSave()', 'POST', '1', 'admin', '研发部门', '/88chaopai/system/dict/data/add', '120.202.54.178', 'XX XX', '{\"dictLabel\":[\"护理\"],\"dictValue\":[\"5\"],\"dictType\":[\"stylist_order_project\"],\"cssClass\":[\"\"],\"dictSort\":[\"5\"],\"listClass\":[\"\"],\"isDefault\":[\"Y\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', '0', null, '2020-06-08 16:02:29');
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -1007,7 +1027,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', '103', 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '/profile/avatar/2020/06/08/1796f940b7ca5aded32cf239f012a573.png', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '117.136.23.53', '2020-06-08 15:32:41', 'admin', '2018-03-16 11:33:00', 'ry', '2020-06-08 15:32:41', '管理员');
+INSERT INTO `sys_user` VALUES ('1', '103', 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '/profile/avatar/2020/06/08/1796f940b7ca5aded32cf239f012a573.png', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '120.202.54.178', '2020-06-08 16:00:34', 'admin', '2018-03-16 11:33:00', 'ry', '2020-06-08 16:00:33', '管理员');
 INSERT INTO `sys_user` VALUES ('2', '105', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '127.0.0.1', '2018-03-16 11:33:00', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '测试员');
 INSERT INTO `sys_user` VALUES ('100', '104', 'hedong', '何东', '00', 'hedong@126.com', '15090969269', '0', '', '8eda8fe1f8ba4eee32387f132dc240bd', '783682', '0', '0', '120.202.54.178', '2020-06-08 15:38:39', 'admin', '2020-06-08 14:47:31', 'admin', '2020-06-08 15:38:39', '');
 
@@ -1033,9 +1053,9 @@ CREATE TABLE `sys_user_online` (
 -- ----------------------------
 -- Records of sys_user_online
 -- ----------------------------
-INSERT INTO `sys_user_online` VALUES ('2634220d-7203-46ec-9131-e83d79d31d25', 'admin', '研发部门', '117.136.23.53', 'XX XX', 'Apple WebKit', 'Mac OS X (iPhone)', 'on_line', '2020-06-08 15:32:21', '2020-06-08 15:32:41', '1800000');
+INSERT INTO `sys_user_online` VALUES ('2634220d-7203-46ec-9131-e83d79d31d25', 'admin', '研发部门', '117.136.23.53', 'XX XX', 'Apple WebKit', 'Mac OS X (iPhone)', 'on_line', '2020-06-08 15:37:20', '2020-06-08 15:51:57', '1800000');
 INSERT INTO `sys_user_online` VALUES ('7948ca2d-a6ac-4b43-82b4-5bcdaecd000d', 'hedong', '市场部门', '120.202.54.178', 'XX XX', 'Chrome', 'Windows 10', 'on_line', '2020-06-08 15:38:34', '2020-06-08 15:38:39', '1800000');
-INSERT INTO `sys_user_online` VALUES ('edcea12e-5c00-4816-bca2-01e0bdc3e10a', 'admin', '研发部门', '120.202.54.178', 'XX XX', 'Chrome 8', 'Windows 10', 'on_line', '2020-06-08 15:16:07', '2020-06-08 15:20:45', '1800000');
+INSERT INTO `sys_user_online` VALUES ('edcea12e-5c00-4816-bca2-01e0bdc3e10a', 'admin', '研发部门', '120.202.54.178', 'XX XX', 'Chrome 8', 'Windows 10', 'on_line', '2020-06-08 16:00:27', '2020-06-08 16:01:55', '1800000');
 
 -- ----------------------------
 -- Table structure for sys_user_post
